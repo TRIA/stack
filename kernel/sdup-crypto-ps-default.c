@@ -406,7 +406,7 @@ static int add_hmac(struct sdup_crypto_ps_default_data * priv_data,
 		return -1;
 	}
 
-	shash->flags = 0;
+	// shash->flags = 0; deprecated
 	shash->tfm = state->shash;
 
 	if (crypto_shash_digest(shash, data, buffer_size, data+buffer_size)) {
@@ -448,7 +448,7 @@ static int check_hmac(struct sdup_crypto_ps_default_data * priv_data,
 		return -1;
 	}
 
-	shash->flags = 0;
+	// shash->flags = 0; deprecated
 	shash->tfm = state->shash;
 
 	if (crypto_shash_digest(shash, data, buffer_size-digest_size, verify_digest)) {
